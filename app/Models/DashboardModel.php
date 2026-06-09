@@ -28,25 +28,21 @@ class DashboardModel {
         ];
 
         try {
-            // Total usuarios
             $stmt = $this->db->query("SELECT COUNT(*) as total FROM usuarios");
             $stats['total_usuarios'] = $stmt->fetch()['total'];
         } catch (Exception $e) { /* Ignorar si falla */ }
 
         try {
-            // Voluntarios pendientes
             $stmt = $this->db->query("SELECT COUNT(*) as total FROM voluntarios WHERE verificado = 0");
             $stats['voluntarios_pendientes'] = $stmt->fetch()['total'];
         } catch (Exception $e) { /* Ignorar si falla */ }
 
         try {
-            // Veterinarios pendientes
             $stmt = $this->db->query("SELECT COUNT(*) as total FROM veterinarios WHERE disponible = 0");
             $stats['veterinarios_pendientes'] = $stmt->fetch()['total'];
         } catch (Exception $e) { /* Ignorar si falla */ }
 
         try {
-            // Mascotas (Intentamos contar, si la tabla o columna no existe, queda en 0)
             $stmt = $this->db->query("SELECT COUNT(*) as total FROM mascotas");
             $stats['mascotas_disponibles'] = $stmt->fetch()['total'];
         } catch (Exception $e) { /* Ignorar si falla */ }

@@ -1,20 +1,21 @@
 /* ============================================================
    PETGUARD - Dashboard Admin (Versión Completa con Modales)
+   Paleta homologada con Landing Page (60-30-10)
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
     --bg-sidebar: #1a1a1a;
-    --bg-panel: #fafafa;
+    --bg-panel: #f8f9fc;
     --bg-main: #ffffff;
     --text-primary: #0a0a0a;
-    --text-secondary: #6b7280;
-    --border-color: #e5e7eb;
-    --accent-color: #ff9a76;
-    --card-bg: #fafafa;
-    --hover-bg: #f3f4f6;
-    --icon-color: #9ca3af;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --accent-color: #ff6b4a;
+    --card-bg: #f8f9fc;
+    --hover-bg: #f1f3f8;
+    --icon-color: #94a3b8;
 }
 
 body.dark-mode {
@@ -22,7 +23,7 @@ body.dark-mode {
     --bg-panel: #1a1a1a;
     --bg-main: #2d2d2d;
     --text-primary: #f5f5f7;
-    --text-secondary: #9ca3af;
+    --text-secondary: #94a3b8;
     --border-color: #374151;
     --card-bg: #1a1a1a;
     --hover-bg: #2d2d2d;
@@ -388,7 +389,7 @@ body.dark-mode {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: rgba(255, 154, 118, 0.1);
+    background: rgba(255, 107, 74, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -665,7 +666,7 @@ body.dark-mode {
 .form-input:focus, .form-select:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(255, 154, 118, 0.1);
+    box-shadow: 0 0 0 3px rgba(255, 107, 74, 0.1);
 }
 
 .filter-buttons {
@@ -698,7 +699,7 @@ body.dark-mode {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 154, 118, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 107, 74, 0.3);
 }
 
 .btn-secondary {
@@ -862,7 +863,7 @@ body.dark-mode {
 .modal-body .form-select:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(255, 154, 118, 0.1);
+    box-shadow: 0 0 0 3px rgba(255, 107, 74, 0.1);
 }
 
 .modal-footer {
@@ -1013,7 +1014,7 @@ body.dark-mode {
 .image-upload-zone:hover,
 .image-upload-zone.dragover {
     border-color: var(--accent-color);
-    background: rgba(255, 154, 118, 0.05);
+    background: rgba(255, 107, 74, 0.05);
 }
 
 .image-upload-zone input[type="file"] {

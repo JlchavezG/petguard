@@ -1,0 +1,119 @@
+    /**
+ * ============================================================
+ * PETGUARD - Estilos del Catálogo Público (Separado)
+ * ============================================================
+ */
+
+.pet-card-catalogo {
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.pet-card-catalogo:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent);
+}
+
+.pet-card-image-catalogo {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+}
+
+.pet-card-image-catalogo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.pet-card-catalogo:hover .pet-card-image-catalogo img {
+    transform: scale(1.05);
+}
+
+.badge-urgente-catalogo {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    z-index: 2;
+}
+
+.pet-card-body-catalogo {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pet-card-header { 
+    margin-bottom: 16px; 
+}
+
+.pet-card-header h3 { 
+    font-size: 20px; 
+    font-weight: 700; 
+    color: var(--text-primary); 
+    margin: 0 0 4px 0; 
+}
+
+.pet-card-header span { 
+    font-size: 14px; 
+    color: var(--text-secondary); 
+    font-weight: 600; 
+}
+
+.pet-card-info { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 16px; 
+    margin-bottom: 16px; 
+}
+
+.info-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+    font-size: 14px; 
+    color: var(--text-secondary); 
+    font-weight: 600; 
+}
+
+.info-item svg { 
+    color: var(--accent); 
+    flex-shrink: 0; 
+    width: 16px; 
+    height: 16px; 
+}
+
+.pet-card-desc {
+    font-size: 14px; 
+    color: var(--text-secondary); 
+    line-height: 1.6; 
+    margin-top: auto;
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+}
+
+.card-actions {
+    margin-top: 20px; 
+    padding-top: 20px; 
+    border-top: 1px solid var(--border-color); 
+    display: flex; 
+    gap: 12px;
+}

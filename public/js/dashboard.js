@@ -69,10 +69,10 @@ function toggleSidebar() {
     }
 }
 
-// Cerrar sesión
+// Cerrar sesión (CORREGIDO: ahora incluye ?logout=1 para destruir la sesión)
 function logout() {
     if (confirm('¿Estás seguro de que deseas cerrar sesión?')) {
-        window.location.href = '/petguard/public/login.php';
+        window.location.href = '/petguard/public/login.php?logout=1';
     }
 }
 
@@ -104,120 +104,6 @@ function openEditModal(userData) {
     openModal('modal-edit-user');
 }
 
-// === FUNCIONES DE SUBIDA DE IMÁGENES ===
-function initImageUpload(zoneId, inputId, previewId, fileInfoId, errorId, existingUrl) {
-    const zone = document.getElementById(zoneId);
-    const input = document.getElementById(inputId);
-    const previewContainer = document.getElementById(previewId);
-    const fileInfo = document.getElementById(fileInfoId);
-    const errorMsg = document.getElementById(errorId);
-    
-    if (!zone || !input) return;
-    
-    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
-    const maxSize = 5 * 1024 * 1024;
-    
-    function validateAndPreview(file) {
-        if (errorMsg) errorMsg.classList.remove('visible');
-        
-        if (!allowedTypes.includes(file.type)) {
-            if (errorMsg) {
-                errorMsg.textContent = 'Tipo no permitido. Solo JPG, PNG o WEBP.';
-                errorMsg.classList.add('visible');
-            }
-            return false;
-        }
-        
-        if (file.size > maxSize) {
-            if (errorMsg) {
-                errorMsg.textContent = 'Archivo muy grande. Máximo 5MB.';
-                errorMsg.classList.add('visible');
-            }
-            return false;
-        }
-        
-        if (fileInfo) {
-            const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
-            fileInfo.textContent = '✓ ' + file.name + ' (' + sizeMB + ' MB)';
-        }
-        
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            if (previewContainer) {
-                const img = previewContainer.querySelector('img') || document.createElement('img');
-                img.src = e.target.result;
-                img.className = 'upload-preview-image';
-                if (!previewContainer.querySelector('img')) {
-                    previewContainer.appendChild(img);
-                }
-                previewContainer.classList.add('active');
-            }
-        };
-        reader.readAsDataURL(file);
-        
-        return true;
-    }
-    
-    function removeImage() {
-        input.value = '';
-        if (fileInfo) fileInfo.textContent = '';
-        if (previewContainer) {
-            previewContainer.classList.remove('active');
-            const img = previewContainer.querySelector('img');
-            if (img) img.remove();
-        }
-        if (errorMsg) errorMsg.classList.remove('visible');
-    }
-    
-    zone.addEventListener('click', function(e) {
-        if (e.target.classList.contains('upload-remove-btn')) return;
-        input.click();
-    });
-    
-    zone.addEventListener('dragover', function(e) {
-        e.preventDefault();
-        zone.classList.add('dragover');
-    });
-    
-    zone.addEventListener('dragleave', function() {
-        zone.classList.remove('dragover');
-    });
-    
-    zone.addEventListener('drop', function(e) {
-        e.preventDefault();
-        zone.classList.remove('dragover');
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-            input.files = files;
-            validateAndPreview(files[0]);
-        }
-    });
-    
-    input.addEventListener('change', function() {
-        if (this.files.length > 0) {
-            validateAndPreview(this.files[0]);
-        }
-    });
-    
-    // Botón remover
-    const removeBtn = previewContainer ? previewContainer.querySelector('.upload-remove-btn') : null;
-    if (removeBtn) {
-        removeBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            removeImage();
-        });
-    }
-    
-    // Mostrar imagen existente si hay
-    if (existingUrl && previewContainer) {
-        const img = document.createElement('img');
-        img.src = existingUrl;
-        img.className = 'upload-preview-image';
-        previewContainer.appendChild(img);
-        previewContainer.classList.add('active');
-    }
-}
-
 // Cerrar modal al hacer clic fuera
 document.addEventListener('click', function(event) {
     if (event.target.classList.contains('modal-overlay')) {
@@ -244,8 +130,4 @@ document.addEventListener('DOMContentLoaded', function() {
     if (section && document.getElementById('section-' + section)) {
         showSection(section);
     }
-    
-    // Inicializar zonas de subida de imágenes
-    initImageUpload('create-foto-zone', 'create-foto-file', 'create-foto-preview', 'create-foto-info', 'create-foto-error', null);
-    initImageUpload('edit-foto-zone', 'edit-foto-file', 'edit-foto-preview', 'edit-foto-info', 'edit-foto-error', null);
 });

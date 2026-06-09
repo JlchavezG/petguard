@@ -1,243 +1,178 @@
-    <!-- SECCIÓN 1: HERO CON EFECTO DE TEXTO ANIMADO Y HUELLITAS -->
+<?php
+/**
+ * ============================================================
+ * PETGUARD - Landing Page Profesional (Archivo Completo)
+ * ============================================================
+ */
+if (!isset($data)) {
+    $data = ['stats' => ['mascotas_disponibles' => 0, 'adopciones_completadas' => 0]];
+}
+
+$fallbackImage = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmY2YjRhIiBzdHJva2Utd2lkdGg9IjEuNSI+PHBhdGggZD0iTTEwIDUuMTcyQzEwIDMuNzgyIDguNDIzIDIuNjc5IDYuNSAzYy0yLjgyMy40Ny00LjExMyA2LjAwNi00IDcgLjA4LjcwMyAxLjcyNSAxLjcyMiAzLjY1NiAxIDEuMjYxLS40NzIgMS45Ni0xLjQ1IDIuMzQ0LTIuNU0xNC4yNjcgNS4xNzJjMC0xLjM5IDEuNTc3LTIuNDkzIDMuNS0yLjE3MiAyLjgyMy40NyA0LjExMyA2LjAwNiA0IDcgLS4wOC43MDMtMS43MjUgMS43MjItMy42NTYgMS0xLjI2MS0uNDcyLTEuODU1LTEuNDUtMi4yMzktMi41TTggMTR2LjVNMTYgMTR2LjVNMTEuMjUgMTYuMjVoMS41TDEyIDE3bC0uNzUtLjc1ek00LjQyIDExLjI0N0ExMy4xNTIgMTMuMTUyIDAgMDA0IDE0LjVjMCAyLjA3Ljg0IDMuNSAyLjUgMy41aDExYzEuNjYgMCAyLjUtMS40MyAyLjUtMy41IDAtMS4wNy0uMTQtMi4yNy0uNDItMy4yNTNNOSAxMGEyIDAgMTEtNCAwIDIgMiAwIDAxNCAwem0xMCAwYTIgMiAwIDExLTQgMCAyIDIgMCAwMTQgMHoiLz48L3N2Zz4=';
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetGuard - Encuentra a tu mejor amigo</title>
+    <link rel="stylesheet" href="/petguard/public/css/landing.css?v=<?php echo time(); ?>">
+</head>
+<body>
+
+    <header class="landing-header">
+        <div class="nav-container">
+            <a href="/petguard/public/index.php" class="logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 50 C45 45, 40 48, 42 53 C44 58, 50 60, 55 58 C60 56, 62 50, 58 46 C54 42, 48 44, 50 50 Z M35 40 C32 38, 28 40, 29 44 C30 48, 34 49, 37 47 C40 45, 40 42, 35 40 Z M65 40 C68 38, 72 40, 71 44 C70 48, 66 49, 63 47 C60 45, 60 42, 65 40 Z M40 30 C38 28, 34 29, 35 33 C36 37, 40 38, 42 36 C44 34, 43 31, 40 30 Z M60 30 C62 28, 66 29, 65 33 C64 37, 60 38, 58 36 C56 34, 57 31, 60 30 Z"/>
+                </svg>
+                PetGuard
+            </a>
+            <nav class="nav-links">
+                <a href="#como-funciona">Cómo funciona</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <div class="nav-buttons">
+                <a href="/petguard/public/login.php" class="btn btn-secondary">Iniciar Sesión</a>
+                <a href="/petguard/public/register.php" class="btn btn-primary">Registrarse</a>
+            </div>
+        </div>
+    </header>
+
     <section class="hero">
-        <!-- Huellas decorativas -->
-        <div class="paw-prints-container">
-            <svg class="paw-print paw-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 50 C45 45, 40 48, 42 53 C44 58, 50 60, 55 58 C60 56, 62 50, 58 46 C54 42, 48 44, 50 50 Z M35 40 C32 38, 28 40, 29 44 C30 48, 34 49, 37 47 C40 45, 40 42, 35 40 Z M65 40 C68 38, 72 40, 71 44 C70 48, 66 49, 63 47 C60 45, 60 42, 65 40 Z M40 30 C38 28, 34 29, 35 33 C36 37, 40 38, 42 36 C44 34, 43 31, 40 30 Z M60 30 C62 28, 66 29, 65 33 C64 37, 60 38, 58 36 C56 34, 57 31, 60 30 Z" fill="currentColor"/>
-            </svg>
-            <svg class="paw-print paw-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 50 C45 45, 40 48, 42 53 C44 58, 50 60, 55 58 C60 56, 62 50, 58 46 C54 42, 48 44, 50 50 Z M35 40 C32 38, 28 40, 29 44 C30 48, 34 49, 37 47 C40 45, 40 42, 35 40 Z M65 40 C68 38, 72 40, 71 44 C70 48, 66 49, 63 47 C60 45, 60 42, 65 40 Z M40 30 C38 28, 34 29, 35 33 C36 37, 40 38, 42 36 C44 34, 43 31, 40 30 Z M60 30 C62 28, 66 29, 65 33 C64 37, 60 38, 58 36 C56 34, 57 31, 60 30 Z" fill="currentColor"/>
-            </svg>
-            <svg class="paw-print paw-3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 50 C45 45, 40 48, 42 53 C44 58, 50 60, 55 58 C60 56, 62 50, 58 46 C54 42, 48 44, 50 50 Z M35 40 C32 38, 28 40, 29 44 C30 48, 34 49, 37 47 C40 45, 40 42, 35 40 Z M65 40 C68 38, 72 40, 71 44 C70 48, 66 49, 63 47 C60 45, 60 42, 65 40 Z M40 30 C38 28, 34 29, 35 33 C36 37, 40 38, 42 36 C44 34, 43 31, 40 30 Z M60 30 C62 28, 66 29, 65 33 C64 37, 60 38, 58 36 C56 34, 57 31, 60 30 Z" fill="currentColor"/>
-            </svg>
-            <svg class="paw-print paw-4" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 50 C45 45, 40 48, 42 53 C44 58, 50 60, 55 58 C60 56, 62 50, 58 46 C54 42, 48 44, 50 50 Z M35 40 C32 38, 28 40, 29 44 C30 48, 34 49, 37 47 C40 45, 40 42, 35 40 Z M65 40 C68 38, 72 40, 71 44 C70 48, 66 49, 63 47 C60 45, 60 42, 65 40 Z M40 30 C38 28, 34 29, 35 33 C36 37, 40 38, 42 36 C44 34, 43 31, 40 30 Z M60 30 C62 28, 66 29, 65 33 C64 37, 60 38, 58 36 C56 34, 57 31, 60 30 Z" fill="currentColor"/>
-            </svg>
-            <svg class="paw-print paw-5" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 50 C45 45, 40 48, 42 53 C44 58, 50 60, 55 58 C60 56, 62 50, 58 46 C54 42, 48 44, 50 50 Z M35 40 C32 38, 28 40, 29 44 C30 48, 34 49, 37 47 C40 45, 40 42, 35 40 Z M65 40 C68 38, 72 40, 71 44 C70 48, 66 49, 63 47 C60 45, 60 42, 65 40 Z M40 30 C38 28, 34 29, 35 33 C36 37, 40 38, 42 36 C44 34, 43 31, 40 30 Z M60 30 C62 28, 66 29, 65 33 C64 37, 60 38, 58 36 C56 34, 57 31, 60 30 Z" fill="currentColor"/>
-            </svg>
-            <svg class="paw-print paw-6" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 50 C45 45, 40 48, 42 53 C44 58, 50 60, 55 58 C60 56, 62 50, 58 46 C54 42, 48 44, 50 50 Z M35 40 C32 38, 28 40, 29 44 C30 48, 34 49, 37 47 C40 45, 40 42, 35 40 Z M65 40 C68 38, 72 40, 71 44 C70 48, 66 49, 63 47 C60 45, 60 42, 65 40 Z M40 30 C38 28, 34 29, 35 33 C36 37, 40 38, 42 36 C44 34, 43 31, 40 30 Z M60 30 C62 28, 66 29, 65 33 C64 37, 60 38, 58 36 C56 34, 57 31, 60 30 Z" fill="currentColor"/>
-            </svg>
+        <div class="hero-content">
+            <div class="hero-badge">Más de <?php echo number_format($data['stats']['adopciones_completadas']); ?> adopciones exitosas</div>
+            <h1>No compres,<br><span>adopta</span></h1>
+            <p>Conectamos mascotas rescatadas que buscan un hogar con personas maravillosas como tú. El proceso es seguro, transparente y lleno de amor.</p>
+            <div class="hero-buttons">
+                <a href="/petguard/public/catalogo.php" class="btn btn-primary">🐾 Ver Mascotas</a>
+                <a href="#como-funciona" class="btn btn-secondary">Conoce el proceso</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><div class="stat-value"><?php echo number_format($data['stats']['mascotas_disponibles']); ?></div><div class="stat-label">Mascotas disponibles</div></div>
+                <div class="stat"><div class="stat-value">48h</div><div class="stat-label">Tiempo de respuesta</div></div>
+                <div class="stat"><div class="stat-value">100%</div><div class="stat-label">Seguimiento</div></div>
+            </div>
         </div>
-
-        <div class="hero-title-wrapper">
-            <h1>
-                <span class="hero-line">
-                    <span class="hero-line-inner">PetGuard</span>
-                </span>
-            </h1>
+        <div class="hero-visual">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=800&h=600&fit=crop" alt="Mascota feliz" class="hero-image" onerror="this.src='<?php echo $fallbackImage; ?>'; this.style.objectFit='contain'; this.style.padding='40px';">
+            </div>
+            <div class="floating-card card-1"><div class="floating-card-icon">🏠</div><h4>2,500+</h4><p>Hogares felices</p></div>
+            <div class="floating-card card-2"><div class="floating-card-icon">❤️</div><h4>98%</h4><p>Adopciones exitosas</p></div>
         </div>
-        <p>La plataforma que conecta rescates, veterinarios y adoptantes responsables. Tecnología al servicio del bienestar animal.</p>
     </section>
 
-    <!-- BENTO GRID: HERO CARD + FEATURES -->
-    <div class="bento-container">
-        <div class="bento-grid">
-            <div class="card hero-card span-2 span-row">
-                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=1200&q=80" alt="Golden Retriever feliz" class="hero-card-bg">
-                <div class="hero-card-overlay"></div>
-                <div class="hero-card-content">
-                    <h3>Encuentra tu compañero ideal</h3>
-                    <p>Miles de mascotas rescatadas esperan un hogar lleno de amor</p>
-                </div>
-            </div>
-
-            <div class="card feature-card">
-                <img src="https://images.unsplash.com/photo-1629740067905-bd3f515aa739?auto=format&fit=crop&w=800&q=80" alt="Veterinario revisando mascota" class="feature-card-image">
-                <div class="feature-card-overlay">
-                    <h4>Red Veterinaria</h4>
-                    <p>Clínicas verificadas con convenios especiales</p>
-                </div>
-            </div>
-
-            <div class="card feature-card">
-                <img src="https://images.unsplash.com/photo-1569396116180-210c182bedb8?auto=format&fit=crop&w=800&q=80" alt="Mapa con ubicación GPS" class="feature-card-image">
-                <div class="feature-card-overlay">
-                    <h4>Geolocalización</h4>
-                    <p>Encuentra rescates cerca de ti</p>
-                </div>
-            </div>
+    <section class="timeline-section" id="como-funciona">
+        <div class="section-header">
+            <div class="section-label">Proceso Simple</div>
+            <h2 class="section-title">¿Cómo funciona?</h2>
+            <p class="section-subtitle">Adoptar es más fácil de lo que crees. Solo sigue estos 4 pasos y estarás más cerca de encontrar a tu nuevo mejor amigo.</p>
         </div>
-    </div>
 
-    <!-- SECCIÓN 2: VETERINARIAS Y MAPA -->
-    <h2 class="section-title">Red de Veterinarias Aliadas</h2>
-    <div class="bento-container">
-        <div class="bento-grid">
-            <div class="card span-2">
-                <h4 style="font-size: 32px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.5px;">Acceso a clínicas verificadas</h4>
-                <p style="font-size: 18px; color: var(--text-secondary); margin-bottom: 28px; line-height: 1.6; flex: 1;">Agenda citas, revisa historiales médicos y encuentra la clínica más cercana con nuestros aliados veterinarios. Todos verificados y con convenios especiales para mascotas PetGuard.</p>
-                <a href="#" class="btn-primary">Ver mapa de clínicas</a>
-            </div>
-            <div class="card feature-card">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Clínica veterinaria moderna" class="feature-card-image">
-                <div class="feature-card-overlay">
-                    <h4>89 Clínicas Aliadas</h4>
-                    <p>En toda la República Mexicana</p>
+        <div class="timeline-wrapper">
+            <div class="timeline-track">
+                <div class="timeline-step">
+                    <div class="timeline-step-icon">
+                        <span class="step-number">1</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
+                    <div class="timeline-step-content">
+                        <h3>Explora el Catálogo</h3>
+                        <p>Navega por nuestras mascotas disponibles. Filtra por especie, tamaño o edad para encontrar a tu compañero ideal.</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- SECCIÓN 3: CATÁLOGO CON STICKY SEARCH -->
-    <h2 class="section-title">Mascotas en Adopción</h2>
-    
-    <div class="sticky-search-wrapper">
-        <div class="sticky-search">
-            <input type="text" placeholder="Busca por raza, edad o ubicación...">
-            <button type="button">Buscar</button>
-        </div>
-    </div>
+                <div class="timeline-step">
+                    <div class="timeline-step-icon">
+                        <span class="step-number">2</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                    </div>
+                    <div class="timeline-step-content">
+                        <h3>Crea tu Cuenta y Solicita</h3>
+                        <p>Regístrate en menos de 2 minutos y envía tu solicitud. Nuestro formulario asegura el mejor match para la mascota.</p>
+                    </div>
+                </div>
 
-    <div class="bento-container">
-        <div class="bento-grid">
-            <div class="card pet-card">
-                <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=800&q=80" alt="Luna la gata" class="pet-card-image" loading="lazy">
-                <div class="pet-card-content">
-                    <h4>Luna</h4>
-                    <p class="meta">Gata • 1 año • CDMX</p>
+                <div class="timeline-step">
+                    <div class="timeline-step-icon">
+                        <span class="step-number">3</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </div>
+                    <div class="timeline-step-content">
+                        <h3>Entrevista y Visita</h3>
+                        <p>Revisamos tu solicitud en 48h. Si todo está en orden, agendamos una visita para que conozcas a tu posible compañero.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card pet-card">
-                <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=800&q=80" alt="Rocky el perro" class="pet-card-image" loading="lazy">
-                <div class="pet-card-content">
-                    <h4>Rocky</h4>
-                    <p class="meta">Perro • 3 años • Guadalajara</p>
-                </div>
-            </div>
-            <div class="card pet-card">
-                <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?auto=format&fit=crop&w=800&q=80" alt="Nube la gata" class="pet-card-image" loading="lazy">
-                <div class="pet-card-content">
-                    <h4>Nube</h4>
-                    <p class="meta">Gata • 8 meses • Monterrey</p>
-                </div>
-            </div>
-            <div class="card pet-card">
-                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80" alt="Coco el perro" class="pet-card-image" loading="lazy">
-                <div class="pet-card-content">
-                    <h4>Coco</h4>
-                    <p class="meta">Perro • 2 años • CDMX</p>
-                </div>
-            </div>
-            <div class="card pet-card">
-                <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" alt="Michi el gato" class="pet-card-image" loading="lazy">
-                <div class="pet-card-content">
-                    <h4>Michi</h4>
-                    <p class="meta">Gato • 2 años • Puebla</p>
-                </div>
-            </div>
-            <div class="card pet-card">
-                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=80" alt="Max el Golden" class="pet-card-image" loading="lazy">
-                <div class="pet-card-content">
-                    <h4>Max</h4>
-                    <p class="meta">Golden • 2 años • CDMX</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- SECCIÓN 4: APPLE SLIDER DE MASCOTAS DESTACADAS -->
-    <h2 class="section-title">Historias de Éxito</h2>
-    <section class="apple-slider-section">
-        <div class="apple-slider-container">
-            <div class="apple-slider" id="appleSlider">
-                <div class="apple-slider-card">
-                    <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=600&q=80" alt="Familia con mascota" class="apple-slider-card-image">
-                    <div class="apple-slider-card-content">
-                        <h4>Familia Rodríguez</h4>
-                        <p>Adoptaron a Max hace 6 meses. "Cambió nuestras vidas"</p>
+                <div class="timeline-step">
+                    <div class="timeline-step-icon">
+                        <span class="step-number">4</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <div class="timeline-step-content">
+                        <h3>¡Adopción Completada!</h3>
+                        <p>Firmamos el compromiso y te llevas a tu nuevo amigo a casa. Recibirás seguimiento y asesoría veterinaria continua.</p>
                     </div>
                 </div>
-                <div class="apple-slider-card">
-                    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80" alt="Perro corriendo" class="apple-slider-card-image">
-                    <div class="apple-slider-card-content">
-                        <h4>Carlos y Luna</h4>
-                        <p>"Luna llegó tímida, ahora es la reina de la casa"</p>
-                    </div>
-                </div>
-                <div class="apple-slider-card">
-                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=80" alt="Golden feliz" class="apple-slider-card-image">
-                    <div class="apple-slider-card-content">
-                        <h4>Ana y Rocky</h4>
-                        <p>"Rocky es el mejor compañero de mis hijos"</p>
-                    </div>
-                </div>
-                <div class="apple-slider-card">
-                    <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=80" alt="Gato naranja" class="apple-slider-card-image">
-                    <div class="apple-slider-card-content">
-                        <h4>Pedro y Michi</h4>
-                        <p>"Michi me ayudó a superar la soledad"</p>
-                    </div>
-                </div>
-                <div class="apple-slider-card">
-                    <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=600&q=80" alt="Perro mestizo" class="apple-slider-card-image">
-                    <div class="apple-slider-card-content">
-                        <h4>María y Coco</h4>
-                        <p>"Coco es el perro más fiel que hemos tenido"</p>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-nav">
-                <button class="slider-btn" id="sliderPrev">
-                    <i class="bi bi-chevron-left"></i>
-                </button>
-                <button class="slider-btn" id="sliderNext">
-                    <i class="bi bi-chevron-right"></i>
-                </button>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 5: DONACIONES -->
-    <h2 class="section-title">Donaciones</h2>
-    <div class="bento-container">
-        <div class="bento-grid">
-            <div class="card donation-card span-2">
-                <h3>Tu ayuda salva vidas</h3>
-                <p>El 100% de tu donación se destina a alimentación, atención veterinaria y refugio para animales rescatados. Transparencia total.</p>
-                <a href="#" class="btn-primary">Donar ahora</a>
+    <section class="features-section" id="beneficios">
+        <div class="section-header">
+            <div class="section-label">¿Por qué adoptar?</div>
+            <h2 class="section-title">Beneficios de adoptar</h2>
+            <p class="section-subtitle">Adoptar no solo le das una segunda oportunidad a una mascota, también recibes beneficios increíbles.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
+                <h3>Amor incondicional</h3>
+                <p>Las mascotas adoptadas desarrollan un vínculo especial y lealtad incomparable con sus nuevos dueños.</p>
             </div>
-            <div class="card feature-card">
-                <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=800&q=80" alt="Alimento para mascotas" class="feature-card-image" loading="lazy">
-                <div class="feature-card-overlay">
-                    <h4>Alimento</h4>
-                    <p>Nutrición de calidad</p>
-                </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
+                <h3>Menor costo</h3>
+                <p>La adopción es más económica que comprar. Incluye vacunas, esterilización y microchip.</p>
             </div>
-            <div class="card feature-card">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="Vacunación veterinaria" class="feature-card-image" loading="lazy">
-                <div class="feature-card-overlay">
-                    <h4>Vacunas</h4>
-                    <p>Salud para todos</p>
-                </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div>
+                <h3>Salvas una vida</h3>
+                <p>Al adoptar, liberas espacio en el albergue para que otra mascota pueda ser rescatada.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- SECCIÓN 6: ADOPCIÓN -->
-    <h2 class="section-title">Adopción Responsable</h2>
-    <div class="bento-container">
-        <div class="bento-grid">
-            <div class="card adopt-card span-2">
-                <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=1200&q=80" alt="Abrazo de mascota" class="adopt-card-bg" loading="lazy">
-                <div class="adopt-card-content">
-                    <h3>¿Listo para adoptar?</h3>
-                    <p>Inicia el proceso de adopción responsable. Te acompañamos en cada paso con evaluaciones, visitas y seguimiento post-adopción.</p>
-                    <a href="#" class="btn-primary">Comenzar proceso</a>
-                </div>
-            </div>
-            <div class="card feature-card">
-                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=80" alt="Perro feliz corriendo" class="feature-card-image" loading="lazy">
-                <div class="feature-card-overlay">
-                    <h4>+500 Familias</h4>
-                    <p>Ya adoptaron con PetGuard</p>
-                </div>
+    <section class="cta-section" id="contacto">
+        <div class="cta-container">
+            <h2>¿Listo para cambiar una vida?</h2>
+            <p>Únete a nuestra comunidad de adoptantes y dale a una mascota la segunda oportunidad que merece. Tu mejor amigo te está esperando.</p>
+            <div class="cta-buttons">
+                <a href="/petguard/public/catalogo.php" class="btn btn-white">Ver Mascotas Disponibles</a>
+                <a href="/petguard/public/register.php" class="btn btn-outline-white">Crear Cuenta Gratis</a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 PetGuard. Proyecto de Ingeniería de Software.</p>
+    <footer class="landing-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="var(--accent)"><path d="M50 50 C45 45, 40 48, 42 53 C44 58, 50 60, 55 58 C60 56, 62 50, 58 46 C54 42, 48 44, 50 50 Z"/></svg>
+                PetGuard
+            </div>
+            <div class="footer-links">
+                <a href="/petguard/public/catalogo.php">Catálogo</a>
+                <a href="/petguard/public/login.php">Iniciar Sesión</a>
+                <a href="/petguard/public/register.php">Registrarse</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <?php echo date('Y'); ?> PetGuard. Todos los derechos reservados. | <a href="/petguard/public/login.php">Acceso al Sistema</a></p>
+        </div>
     </footer>
+
+    <script src="/petguard/public/js/landing.js?v=<?php echo time(); ?>"></script>
+</body>
+</html>
